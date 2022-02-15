@@ -1,0 +1,29 @@
+<?php
+
+use \Illuminate\Support\Facades\Route;
+
+Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', 'middleware' => ['auth:api']], function () {
+    // Permissions
+    Route::apiResource('permissions', 'PermissionsApiController');
+
+    // Roles
+    Route::apiResource('roles', 'RolesApiController');
+
+    // Users
+    Route::apiResource('users', 'UsersApiController');
+
+    //Clients
+    Route::apiResource('clients', 'ClientsApiController');
+
+    //Projects
+    Route::apiResource('projects', 'ProjectsApiController');
+
+    //Tasks 
+    Route::apiResource('tasks', 'TasksApiController');
+
+    //Reminders 
+    Route::apiResource('reminders', 'RemindersApiController');
+
+    //Licences
+    Route::apiResource('licences', 'LicencesApiController');
+});
